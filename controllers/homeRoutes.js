@@ -1,22 +1,46 @@
 const router = require('express').Router();
 const { Staff, Booking, Pet } = require('../models');
+const withAuth = require('../utils/auth');
+
 
 router.get("/", async (res, req) => {
     try {
-        res.status(200).json({ message: 'This is the homepage' });
+        const bookingData = await Booking.findAll({
+            include: [
+                {
+                    model: Staff,
+                    attributes: ['name'],
+                },
+                {
+                    model: Pet,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        console.log(bookingData);
+        // Serialize data so the template can read it
+        const bookings = bookingData.map((booking) => booking.get({ plain: true }));
+
+        // Pass serialized data and session flag into template
+        res.render('homepage', {
+            bookings,
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.statusCode(500).json(err);
     }
 });
 
-router.get("/login", async (res, req) => {
+// Displays the login page, if logged in displays the homepage
+router.get('/login', async (res, req) => {
     try {
         if (req.session.logged_in) {
             res.redirect('/');
             return;
-          }
-        
-          res.render('login');
+        }
+
+        res.render('login');
     } catch (err) {
         res.statusCode(500).json(err);
     }
