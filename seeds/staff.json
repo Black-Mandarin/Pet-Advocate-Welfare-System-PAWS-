@@ -2,32 +2,30 @@
   {
     "name": "Alan",
     "email": "alancherian61@outlook.com",
-    "password": @HiGuys
-  }
+    "password": "@HiGuys"
+  },
 
   {
     "name": "Ayako",
     "email": "Ayakoayako@outlook.com",
-    "password": @HiGuys
-  }
+    "password": "AyakoisPassword"
+  },
 
   {
-    "name": "Alan",
-    "email": "alancherian61@outlook.com",
-    "password": @HiGuys
-  }
+    "name": "Sean",
+    "email": "Seansean@outlook.com",
+    "password": "SeanIsNotMyName"
+  },
 
   {
-    "name": "Alan",
-    "email": "alancherian61@outlook.com",
-    "password": @HiGuys
-  }
+    "name": "Chris",
+    "email": "Chrischris@chris.com",
+    "password": "ChrisisNotChris"
+  },
 
   {
-    "name": "Alan",
-    "email": "alancherian61@outlook.com",
-    "password": @HiGuys
+    "name": "Takuji",
+    "email": "Takujitakuji@takuji.com",
+    "password": "IamNotTakuji"
   }
-
-  
 ]
