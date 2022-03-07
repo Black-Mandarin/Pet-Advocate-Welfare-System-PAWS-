@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Leo",
+    "breed": "Labrador",
+    "notes": " Can be a pain"
+  },
+
+  {
+    "name": "Appollo",
+    "breed": "German Shepard",
+    "notes": "Very aggressive"
+  },
+
+  {
+    "name": "Loue",
+    "breed": "Belgian Malinois",
+    "notes": "Very Inteligent, Strong Territorial"
+  }
+]
