@@ -1,0 +1,22 @@
+{{#each bookings as |booking|}}
+<div class="col-md-10 col-lg-8 col-xl-7">
+    <hr class="my-4" />
+    <div class="booking-preview">
+        <a href="/booking/{{booking.id}}">
+            <h2 class="">Booking id: {{booking.id}}| Created: {{format_date date_created}}</h2>
+        </a>
+        <p>
+            Pet ID: {{pet.id}} | Name: {{pet.name}} | Breed: {{pet.breed}} | Note: {{pet.notes}}
+        </p>
+        <p>
+            Staff assigned: {{staff.id}} | {{staff.name}}
+        </p>
+        <p>
+            Fee:{{booking.fee}}
+        </p>
+        <a href="/edit/{{booking.id}}" class="text-right">edit</a></p>
+        </a>
+    </div>
+
+</div>
+{{/each}}
