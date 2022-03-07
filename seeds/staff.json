@@ -7,25 +7,25 @@
 
   {
     "name": "Ayako",
-    "email": "Ayakoayako@outlook.com",
+    "email": "Ayako@out.com",
     "password": "AyakoisPassword"
   },
 
   {
     "name": "Sean",
-    "email": "Seansean@outlook.com",
+    "email": "Sean@out.com",
     "password": "SeanIsNotMyName"
   },
 
   {
     "name": "Chris",
-    "email": "Chrischris@chris.com",
+    "email": "Chris@chris.com",
     "password": "ChrisisNotChris"
   },
 
   {
     "name": "Takuji",
-    "email": "Takujitakuji@takuji.com",
+    "email": "Takuji@takuji.com",
     "password": "IamNotTakuji"
   }
 ]

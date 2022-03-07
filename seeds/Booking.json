@@ -1,27 +1,26 @@
 [
   {
-    "date_created": "",
-    "date_booking": "",
-    "fee": 90 ,
-    "staff_id": " ",
-    "pet_id": " "
-  }
+    "date_booking": "2002/02/20",
+    "fee": 90.65,
+    "staff_id": "1",
+    "pet_id": "1"
+  },
 
   {
-    "date_created": "",
-    "date_booking": "",
-    "fee": 90 ,
-    "staff_id": " ",
-    "pet_id": " "
-  }
+    "fee": 65,
+    "staff_id": "25",
+    "pet_id": "12"
+  },
 
   {
-    "date_created": "",
-    "date_booking": "",
-    "fee": 90 ,
-    "staff_id": " ",
-    "pet_id": " "
-  }
+    "fee": 1230.45,
+    "staff_id": "45",
+    "pet_id": "96"
+  },
 
-  
+  {
+    "fee": 89.63,
+    "staff_id": "96",
+    "pet_id": "69"
+  }
 ]
