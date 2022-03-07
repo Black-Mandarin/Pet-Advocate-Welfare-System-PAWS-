@@ -1,23 +1,30 @@
 const sequelize = require("../config/connection");
-const { staff, booking, pet } = require("../models");
+const { Staff, Booking, Pet } = require("../models");
+
 const staffData = require("./staff.json");
-const booking = require("./booking.json");
-const commentData = require("./commentData.json");
+const bookingData = require("./booking.json");
+const petData = require("./petData.json");
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
-  const users = await User.bulkCreate(userData, {
+
+  const staff = await Staff.bulkCreate(staffData, {
     individualHooks: true,
     returning: true,
   });
-  for (const post of postData) {
-    await Post.create({
-      ...post,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-  await Comment.bulkCreate(commentData, {
+
+  const pet = await Pet.bulkCreate(petData, {
     individualHooks: true,
   });
-  process.exit(0);
+
+  for (const booking of bookingData) {
+    await Booking.create({
+      ...booking,
+      staff_id: staff[Math.floor(Math.random() * staff.length)].id,
+      pet_id: pet[Math.floor(Math.random() * pet.length)].id,
+    });
+  }
 };
+
+process.exit(0);
 seedDatabase();
