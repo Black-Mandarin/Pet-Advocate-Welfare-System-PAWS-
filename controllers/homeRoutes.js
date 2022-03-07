@@ -3,7 +3,7 @@ const { Staff, Booking, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Displays the homepage with bookings
-router.get("/", withAuth, async (res, req) => {
+router.get("/", withAuth, async (req, res) => {
     try {
         const bookingData = await Booking.findAll({
             include: [
@@ -28,12 +28,12 @@ router.get("/", withAuth, async (res, req) => {
             logged_in: req.session.logged_in
         });
     } catch (err) {
-        res.statusCode(500).json(err);
+        res.status(500).json(err);
     }
 });
 
 // Displays the login page, if logged in displays the homepage
-router.get('/login', async (res, req) => {
+router.get('/login', async (req, res) => {
     try {
         if (req.session.logged_in) {
             res.redirect('/');
@@ -42,7 +42,7 @@ router.get('/login', async (res, req) => {
 
         res.render('login');
     } catch (err) {
-        res.statusCode(500).json(err);
+        res.status(500).json(err);
     }
 });
 
@@ -54,3 +54,5 @@ router.get('/booking', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
