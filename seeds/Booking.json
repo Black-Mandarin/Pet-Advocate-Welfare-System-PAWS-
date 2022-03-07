@@ -1,6 +1,27 @@
 [
   {
-    "fee": 45.9,
-    "staff_id": 1
+    "date_created": "",
+    "date_booking": "",
+    "fee": 90 ,
+    "staff_id": " ",
+    "pet_id": " "
   }
+
+  {
+    "date_created": "",
+    "date_booking": "",
+    "fee": 90 ,
+    "staff_id": " ",
+    "pet_id": " "
+  }
+
+  {
+    "date_created": "",
+    "date_booking": "",
+    "fee": 90 ,
+    "staff_id": " ",
+    "pet_id": " "
+  }
+
+  
 ]
