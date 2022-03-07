@@ -2,8 +2,8 @@ const router = require('express').Router();
 const { Staff, Booking, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
-
-router.get("/", async (res, req) => {
+// Displays the homepage with bookings
+router.get("/", withAuth, async (res, req) => {
     try {
         const bookingData = await Booking.findAll({
             include: [
@@ -43,5 +43,14 @@ router.get('/login', async (res, req) => {
         res.render('login');
     } catch (err) {
         res.statusCode(500).json(err);
+    }
+});
+
+// Displays the booking page where you can create a new booking
+router.get('/booking', withAuth, async (req, res) => {
+    try {
+        res.render('booking');
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
