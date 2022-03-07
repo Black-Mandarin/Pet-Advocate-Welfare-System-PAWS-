@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Alan",
+    "email": "alancherian61@outlook.com",
+    "password": "@HiGuys"
+  },
+
+  {
+    "name": "Ayako",
+    "email": "Ayako@out.com",
+    "password": "AyakoisPassword"
+  },
+
+  {
+    "name": "Sean",
+    "email": "Sean@out.com",
+    "password": "SeanIsNotMyName"
+  },
+
+  {
+    "name": "Chris",
+    "email": "Chris@chris.com",
+    "password": "ChrisisNotChris"
+  },
+
+  {
+    "name": "Takuji",
+    "email": "Takuji@takuji.com",
+    "password": "IamNotTakuji"
+  }
+]
