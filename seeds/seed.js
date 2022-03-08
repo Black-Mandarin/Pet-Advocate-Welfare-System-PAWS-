@@ -24,7 +24,8 @@ const seedDatabase = async () => {
       pet_id: pet[Math.floor(Math.random() * pet.length)].id,
     });
   }
+
+  process.exit(0);
 };
 
-process.exit(0);
 seedDatabase();
