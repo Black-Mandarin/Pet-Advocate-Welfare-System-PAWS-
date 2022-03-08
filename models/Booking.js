@@ -16,7 +16,11 @@ Booking.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        date_booking: {
+        date_dropoff: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        date_pickup: {
             type: DataTypes.DATE,
             allowNull: false,
         },
