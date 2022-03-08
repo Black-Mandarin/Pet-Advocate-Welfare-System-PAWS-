@@ -7,7 +7,6 @@
     "staff_id": "1",
     "pet_id": "1"
   },
-
   {
     "date_created": "2002/03/12",
     "date_dropoff": "2002/03/15",
@@ -16,7 +15,6 @@
     "staff_id": "25",
     "pet_id": "12"
   },
-
   {
     "date_created": "2002/10/13",
     "date_dropoff": "2002/10/18",
@@ -25,7 +23,6 @@
     "staff_id": "45",
     "pet_id": "96"
   },
-
   {
     "date_created": "2002/07/01",
     "date_dropoff": "2002/07/02",
