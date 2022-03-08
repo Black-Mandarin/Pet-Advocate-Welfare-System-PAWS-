@@ -13,7 +13,7 @@
             Owner:{{ pet.owner_name}}
         </p>
         <p>
-            drop off: {{booking.date_dropoff}} | pick up: {{booking.date_pickup}}
+            drop off: {{format_date booking.date_dropoff}} | pick up: {{format_date booking.date_pickup}}
         </p>
         <p>
             Staff assigned: {{staff.id}} | {{staff.name}}
