@@ -18,7 +18,6 @@ router.get("/", withAuth, async (req, res) => {
             ],
         });
 
-        console.log(bookingData);
         // Serialize data so the template can read it
         const bookings = bookingData.map((booking) => booking.get({ plain: true }));
 
@@ -49,7 +48,9 @@ router.get('/login', async (req, res) => {
 // Displays the booking page where you can create a new booking
 router.get('/booking', withAuth, async (req, res) => {
     try {
-        res.render('booking');
+        res.render('booking', {
+            logged_in: req.session.logged_in
+        });
     } catch (err) {
         res.status(500).json(err);
     }
