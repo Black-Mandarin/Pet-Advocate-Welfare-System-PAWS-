@@ -2,16 +2,48 @@
     <h3>Create Booking:</h3>
 
     <form class="form new-blog-form">
+        <hr class="my-4" />
+        <h2>Customer Details</h2>
         <div class="form-group">
-            <label for="title">Title:</label>
-            <input class="form-input" type="text" id="title" name="title" />
+            <label for="owner_name">Owner Name:</label>
+            <input class="form-input" type="text" id="owner_name" name="owner_name" />
+        </div>
+        <hr class="my-4" />
+        <h2>Pet Details</h2>
+        <div class="form-group">
+            <label for="pet_name">Pet Name:</label>
+            <input class="form-input" type="text" id="pet_name" name="pet_name" />
         </div>
         <div class="form-group">
-            <label for="content">Content:</label>
-            <textarea class="form-input" id="content" name="content" rows="10"></textarea>
+            <label for="pet_type">Type:</label>
+            <input class="form-input" type="text" id="pet_type" name="pet_type" />
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <label for="pet_breed">Breed:</label>
+            <input class="form-input" type="text" id="pet_breed" name="pet_breed" />
+        </div>
+        <div class="form-group">
+            <label for="pet_notes">Notes:</label>
+            <textarea class="form-input" id="pet_notes" name="pet_notes" rows="3"></textarea>
+        </div>
+        <hr class="my-4" />
+        <h2>Drop off and Pick up</h2>
+        <div class="form-group">
+            <label for="date_dropoff">Drop off:</label>
+            <input class="form-input" type="date" id="date_dropoff" name="date_dropoff" />
+        </div>
+        <div class="form-group">
+            <label for="date_dropoff">Pick up:</label>
+            <input class="form-input" type="date" id="date_pickup" name="date_pickup" />
+        </div>
+        <hr class="my-4" />
+        <h2>Assign Staff</h2>
+        <div class="form-group">
+            <label for="staff">Staff:</label>
+            <input class="form-input" type="staff" id="staff" name="staff" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Book</button>
         </div>
     </form>
 </div>
