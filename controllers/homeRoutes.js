@@ -13,7 +13,6 @@ router.get("/", withAuth, async (req, res) => {
                 },
                 {
                     model: Pet,
-                    attributes: ['name'],
                 },
             ],
         });
