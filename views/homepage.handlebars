@@ -5,8 +5,12 @@
         <a href="/booking/{{booking.id}}">
             <h2 class="">Booking id: {{booking.id}}| Created: {{format_date date_created}}</h2>
         </a>
+
         <p>
-            Pet ID: {{pet.id}} | Name: {{pet.name}} | Breed: {{pet.breed}} | Note: {{pet.notes}}
+            Pet ID: {{pet.id}} | Name: {{pet.pet_name}} | Breed: {{pet.pet_breed}} | Note: {{pet.pet_notes}}
+        </p>
+        <p>
+            Owner:{{ pet.owner_name}}
         </p>
         <p>
             drop off: {{pet.date_dropoff}} | pick up: {{pet.date_pickup}}
