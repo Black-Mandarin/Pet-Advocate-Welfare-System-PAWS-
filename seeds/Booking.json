@@ -1,6 +1,9 @@
 [
   {
-    "date_booking": "2002/02/20",
+    "date_created": " ",
+    "date_dropoff": " ",
+    "date_pickup": " ",
+
     "fee": 90.65,
     "staff_id": "1",
     "pet_id": "1"
