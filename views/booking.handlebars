@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <h3>Create Booking:</h3>
 
-    <form class="form" id="form booking-form">
+    <form class="form" id="booking-form">
         <hr class="my-4" />
         <h3>Customer Details</h3>
         <div class="form-group">
@@ -33,14 +33,20 @@
             <input class="form-input form-control" type="date" id="date_dropoff" name="date_dropoff" />
         </div>
         <div class="form-group">
-            <label for="date_dropoff">Pick up:</label>
+            <label for="date_pickup">Pick up:</label>
             <input class="form-input form-control" type="date" id="date_pickup" name="date_pickup" />
+        </div>
+        <hr class="my-4" />
+        <h2>Price</h2>
+        <div class="form-group">
+            <label for="fee">Fee:</label>
+            <input class="form-input form-control" type="number" id="fee" name="fee" />
         </div>
         <hr class="my-4" />
         <h3>Assign Staff</h3>
         <div class="form-group">
             <label for="staff">Staff:</label>
-            <input class="form-input form-control" type="staff" id="staff" name="staff" />
+            <input class="form-input form-control" type="text" id="staff" name="staff" />
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary mt-2">Book</button>

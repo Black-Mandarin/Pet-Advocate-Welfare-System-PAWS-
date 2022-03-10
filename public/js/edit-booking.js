@@ -9,18 +9,20 @@ const editBookingHandler = async (event) => {
     const date_dropoff = document.querySelector('#date_dropoff').value.trim();
     const date_pickup = document.querySelector('#date_pickup').value.trim();
     const staff = document.querySelector('#staff').value.trim();
+    const pet_id = document.querySelector("#pet_id").value.trim();
+    const fee = document.querySelector('#fee').value.trim();
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
 
     if (owner_name && pet_name && pet_type && pet_breed && pet_notes && date_dropoff
-        && date_pickup && staff && id) {
+        && date_pickup && staff && id && pet_id && fee) {
         // Send a PUT request to the API endpoint
         const response = await fetch(`/api/bookings/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 owner_name, pet_name, pet_type, pet_breed, pet_notes, date_dropoff,
-                date_pickup, staff
+                date_pickup, staff, pet_id: Number(pet_id), fee
             }),
             headers: { 'Content-Type': 'application/json' },
         });
