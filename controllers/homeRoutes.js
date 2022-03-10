@@ -44,15 +44,6 @@ router.get('/login', async (req, res) => {
     }
 });
 
-// Displays the booking page where you can create a new booking
-router.get('/booking', withAuth, async (req, res) => {
-    try {
-        res.render('booking', {
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+
 
 module.exports = router;
