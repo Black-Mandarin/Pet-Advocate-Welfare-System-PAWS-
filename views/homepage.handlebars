@@ -1,30 +1,25 @@
 {{#each bookings as |booking|}}
-<div class="col-md-10 col-lg-8 col-xl-7">
-    <hr class="my-4" />
-    <div class="booking-preview">
-        <a href="/booking/{{booking.id}}">
-            <h2 class="">Booking id: {{booking.id}}| Created: {{format_date date_created}}</h2>
-        </a>
-
-        <p>
-            Pet ID: {{pet.id}} | Name: {{pet.pet_name}} | Type: {{pet.pet_type}} | Breed: {{pet.pet_breed}} |
-        </p>
-        <p> Note:{{pet.pet_notes}}</p>
-        <p>
-            Owner:{{pet.owner_name}}
-        </p>
-        <p>
-            drop off: {{format_date booking.date_dropoff}} | pick up: {{format_date booking.date_pickup}}
-        </p>
-        <p>
-            Staff assigned: {{staff.id}} | {{staff.name}}
-        </p>
-        <p>
-            Fee:{{booking.fee}}
-        </p>
-        <a href="/edit/{{booking.id}}" class="text-right">edit</a></p>
-        </a>
+<div class="card border-dark mb-3" style="">
+    <div class="card-header">
+        <h3 class="">Booking ID: {{booking.id}}| </h3>
     </div>
+    <di class="card-body text-dark">
+        <h5 class="card-title">Pet ID: {{pet.id}} | Name: {{pet.pet_name}} | Type: {{pet.pet_type}} | Breed:
+            {{pet.pet_breed}} |</h5>
+        <p class="card-text">Owner: {{pet.owner_name}}</p>
+        <p class="card-text">Drop off: {{format_date booking.date_dropoff}} | Pick up: {{format_date
+            booking.date_pickup}}</p>
+        <p class="card-text">Staff assigned: ID: {{staff.id}} | NAME: {{staff.name}}</p>
+        <p class="card-text">Fee: {{booking.fee}}</p>
+        <p class="card-text">Note:
+            {{pet.pet_notes}}</p>
+        <hr>
+        Created: {{format_date date_created}} by {{user_name}}
+        <div class="text-right">
+            <a href="/edit/{{booking.id}}"><button class="btn btn-primary mt-2 bookBtn" type="submit">Edit</button></a>
+        </div>
+
+
 
 </div>
 {{/each}}
