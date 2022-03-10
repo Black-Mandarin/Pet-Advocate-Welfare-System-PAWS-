@@ -68,8 +68,15 @@ router.post("/logout", async (req, res) => {
 router.get("/list", async (req, res) => {
     try {
         const staffData = await Staff.findAll();
-        console.log("staffData", staffData);
         const staff = staffData.map((staff) => staff.get({ plain: true }));
+
+        const results = staff.map((staff) => {
+            return {
+                id: staff.id,
+                text: staff.name,
+            }
+        })
+
         res.status(200).json(staff);
 
     } catch (err) {
