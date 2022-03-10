@@ -37,12 +37,12 @@
         <div class="form-group">
             <label for="date_dropoff">Drop off:</label>
             <input class="form-input form-control" type="date" id="date_dropoff" name="date_dropoff"
-                value="{{booking.date_dropoff}}" />
+                value="{{date_dropoff}}" />
         </div>
         <div class="form-group">
             <label for="date_dropoff">Pick up:</label>
             <input class="form-input form-control" type="date" id="date_pickup" name="date_pickup"
-                value="{{booking.date_pickup}}" />
+                value="{{date_pickup}}" />
         </div>
         <hr class="my-4" />
         <h2>Price</h2>
@@ -58,9 +58,10 @@
             <input class="form-input form-control" type="text" id="staff" name="staff" value="{{staff.name}}" />
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary updateBtn">UPDATE</button>
+            <button type="submit" class="btn btn-primary mt-2" id="updateBtn">UPDATE</button>
         </div>
     </form>
 </div>
-
+{{!--
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
 <script src="/js/edit-booking.js"></script>

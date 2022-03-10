@@ -1,11 +1,3 @@
-// $('.js-data-example-ajax').select2({
-//     ajax: {
-//         url: 'https://api.github.com/search/repositories',
-//         dataType: 'json'
-//         // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
-//     }
-// });
-
 const bookingFormHandler = async (event) => {
     event.preventDefault();
 
@@ -41,6 +33,34 @@ const bookingFormHandler = async (event) => {
     }
 };
 
-document
-    .querySelector('#booking-form')
-    .addEventListener('submit', bookingFormHandler);
+$('#staff').select2({
+    ajax: {
+        url: 'api/staffs/list',
+        dataType: 'json',
+        processResults: function (data) {
+            return {
+                results: data.map((staff) => {
+                    return {
+                        id: staff.id,
+                        text: staff.name
+                    }
+                })
+            };
+        }
+    }
+});
+
+document.querySelector('#booking-form').addEventListener('submit', bookingFormHandler);
+
+document.querySelector("#booking-form").addEventListener("submit", () => {
+    const staffId = document.querySelector("#staff").value;
+
+    console.log("selected staff ID", staffId);
+
+    fetch("/booking", {
+        method: "POST",
+        body: {
+            staffId: ParseInt(staffId),
+        }
+    })
+});
