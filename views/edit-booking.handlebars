@@ -4,6 +4,9 @@
     <form class="form" id="edit-booking-form">
         <hr class="my-4" />
         <h2>Customer Details</h2>
+        <div>
+            <input class="d-none" id="pet_id" value="{{pet.id}}">
+        </div>
         <div class="form-group">
             <label for="owner_name">Owner Name:</label>
             <input class="form-input form-control" type="text" id="owner_name" name="owner_name"
@@ -42,10 +45,17 @@
                 value="{{date_pickup}}" />
         </div>
         <hr class="my-4" />
+        <h2>Price</h2>
+        <div class="form-group">
+            <label for="fee">Fee:</label>
+            <input class="form-input form-control" type="number" id="fee" name="fee" 
+            value="{{booking.fee}}"/>
+        </div>
+        <hr class="my-4" />
         <h2>Assign Staff</h2>
         <div class="form-group">
             <label for="staff">Staff:</label>
-            <input class="form-input form-control" type="staff" id="staff" name="staff" value="{{staff.name}}" />
+            <input class="form-input form-control" type="text" id="staff" name="staff" value="{{staff.name}}" />
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary mt-2" id="updateBtn">UPDATE</button>
