@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <h3>Update Booking:</h3>
 
-    <form class="form new-blog-form">
+    <form class="form" id="edit-booking-form">
         <hr class="my-4" />
         <h2>Customer Details</h2>
         <div class="form-group">
@@ -21,33 +21,35 @@
         </div>
         <div class="form-group">
             <label for="pet_breed">Breed:</label>
-            <input class="form-input form-control" type="text" id="pet_breed" name="pet_breed" value="{{pet.pet_breed}}"" />
+            <input class="form-input form-control" type="text" id="pet_breed" name="pet_breed"
+                value="{{pet.pet_breed}}" />
         </div>
-        <div class=" form-group">
+        <div class="form-group">
             <label for="pet_notes">Notes:</label>
-            <textarea class="form-input" id="pet_notes" name="pet_notes" rows="3" value="{{pet.pet_notes}}></textarea>
+            <textarea class="form-input form-control" id="pet_notes" name="pet_notes"
+                rows="3">{{pet.pet_notes}}</textarea>
         </div>
         <hr class=" my-4" />
-            <h2>Drop off and Pick up</h2>
-            <div class="form-group">
-                <label for="date_dropoff">Drop off:</label>
-                <input class="form-input form-control" type="date" id="date_dropoff" name="date_dropoff"
-                    value="{{booking.date_dropoff}}" />
-            </div>
-            <div class="form-group">
-                <label for="date_dropoff">Pick up:</label>
-                <input class="form-input form-control" type="date" id="date_pickup" name="date_pickup"
-                    value="{{booking.date_pickup}}" />
-            </div>
-            <hr class="my-4" />
-            <h2>Assign Staff</h2>
-            <div class="form-group">
-                <label for="staff">Staff:</label>
-                <input class="form-input form-control" type="staff" id="staff" name="staff" value="{{staff.name}}" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary updateBtn">UPDATE</button>
-            </div>
+        <h2>Drop off and Pick up</h2>
+        <div class="form-group">
+            <label for="date_dropoff">Drop off:</label>
+            <input class="form-input form-control" type="date" id="date_dropoff" name="date_dropoff"
+                value="{{booking.date_dropoff}}" />
+        </div>
+        <div class="form-group">
+            <label for="date_dropoff">Pick up:</label>
+            <input class="form-input form-control" type="date" id="date_pickup" name="date_pickup"
+                value="{{booking.date_pickup}}" />
+        </div>
+        <hr class="my-4" />
+        <h2>Assign Staff</h2>
+        <div class="form-group">
+            <label for="staff">Staff:</label>
+            <input class="form-input form-control" type="staff" id="staff" name="staff" value="{{staff.name}}" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary updateBtn">UPDATE</button>
+        </div>
     </form>
 </div>
 
