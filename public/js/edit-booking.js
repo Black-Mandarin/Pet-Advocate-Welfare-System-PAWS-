@@ -34,6 +34,42 @@ const editBookingHandler = async (event) => {
     }
 };
 
+// $('#staff').select2({
+//     ajax: {
+//         url: 'api/staffs/list',
+//         dataType: 'json',
+//         processResults: function (data) {
+//             return {
+//                 results: data.map((staff) => {
+//                     return {
+//                         id: staff.id,
+//                         text: staff.name
+//                     }
+
+//                 })
+//             };
+
+
+
+//         }
+//     }
+// });
+
+// document.querySelector("#edit-booking-form").addEventListener("submit", () => {
+//     const staffId = document.querySelector("#staff").value;
+
+//     console.log("selected staff ID", staffId);
+
+//     fetch("/edit/:id", {
+//         method: "POST",
+//         body: {
+//             staffId: ParseInt(staffId),
+//         }
+//     })
+// });
+
+
+
 document
     .querySelector('#edit-booking-form')
     .addEventListener('submit', editBookingHandler);
