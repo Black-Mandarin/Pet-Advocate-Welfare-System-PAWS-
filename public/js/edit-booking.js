@@ -56,5 +56,5 @@ document
     .addEventListener('submit', editBookingHandler);
 
 document
-    .querySelector('#delete-post')
+    .querySelector('#deleteBtn')
     .addEventListener('click', delButtonHandler);
