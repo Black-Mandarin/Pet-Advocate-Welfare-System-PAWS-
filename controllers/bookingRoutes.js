@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Staff, Booking, Pet} = require('../models');
+const { Staff, Booking, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Displays the booking page where you can create a new booking
@@ -31,7 +31,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
         const booking = bookingData.get({ plain: true });
 
         res.render('edit-booking', {
-            booking,
+            ...booking,
             logged_in: req.session.logged_in
         });
     } catch (err) {

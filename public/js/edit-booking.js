@@ -27,7 +27,7 @@ const editBookingHandler = async (event) => {
 
         if (response.ok) {
             // If successful, redirect the browser to the dashboard
-            document.location.replace('/');
+            window.location.replace(document.referrer);
         } else {
             alert(response.statusText);
         }
