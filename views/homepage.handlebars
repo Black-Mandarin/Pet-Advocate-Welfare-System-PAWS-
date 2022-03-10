@@ -1,7 +1,7 @@
 {{#each bookings as |booking|}}
 <div class="card border-dark mb-3" style="">
     <div class="card-header">
-        <h3 class="">Booking ID: {{booking.id}}| </h3>
+        <h3 class="">Booking ID: {{booking.id}}</h3>
     </div>
     <di class="card-body text-dark">
         <h5 class="card-title">Pet ID: {{pet.id}} | Name: {{pet.pet_name}} | Type: {{pet.pet_type}} | Breed:
@@ -16,8 +16,9 @@
         <hr>
         Created: {{format_date date_created}} by {{user_name}}
         <div class="text-right">
-            <a href="/booking/edit/{{booking.id}}"><button class="btn btn-primary mt-2 bookingBtn"
-                    type="submit">Edit</button></a>
+            <a href="/booking/edit/{{booking.id}}"><button class="btn btn-primary mt-2" id="bookingBtn"
+                    type="submit">EDIT</button></a>
+            <button class="btn btn-danger mt-2" id="deleteBtn" data-id="{{booking.id}}">DELETE</button>
         </div>
 
 
