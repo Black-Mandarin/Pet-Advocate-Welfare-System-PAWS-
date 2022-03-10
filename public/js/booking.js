@@ -1,7 +1,24 @@
-$('.js-data-example-ajax').select2({
+$('#staff').select2({
     ajax: {
-        url: 'https://api.github.com/search/repositories',
-        dataType: 'json'
-        // Additional AJAX parameters go here; see the end of this chapter for the full code of this example
+        url: 'api/staffs/list',
+        dataType: 'json',
+        processResults: function (data) {
+            return {
+                results: data.map((staff) => {
+                    return {
+                        id: staff.id,
+                        text: staff.name
+                    }
+
+                })
+            };
+
+
+
+        }
     }
+});
+
+document.querySelector("#booking-form").addEventListener("submit", () => {
+    const staffId = document.querySelector("#staff").value;
 });
