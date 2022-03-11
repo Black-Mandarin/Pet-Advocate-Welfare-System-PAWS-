@@ -57,10 +57,10 @@ document.querySelector("#booking-form").addEventListener("submit", () => {
 
     console.log("selected staff ID", staffId);
 
-    fetch("/booking", {
+    fetch("/api/bookings", {
         method: "POST",
         body: {
-            staff_id: ParseInt(staffId),
+            staff_id: parseInt(staffId),
         }
     })
 });
