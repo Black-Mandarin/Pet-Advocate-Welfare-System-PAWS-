@@ -60,7 +60,7 @@ document.querySelector("#booking-form").addEventListener("submit", () => {
     fetch("/booking", {
         method: "POST",
         body: {
-            staffId: ParseInt(staffId),
+            staff_id: ParseInt(staffId),
         }
     })
 });

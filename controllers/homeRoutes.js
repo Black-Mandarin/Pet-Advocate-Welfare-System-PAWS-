@@ -9,7 +9,7 @@ router.get("/", withAuth, async (req, res) => {
             include: [
                 {
                     model: Staff,
-                    attributes: ['name'],
+                    attributes: ['name', 'id'],
                 },
                 {
                     model: Pet,

@@ -17,8 +17,7 @@ router.post("/", withAuth, async (req, res) => {
             date_dropoff: req.body.date_dropoff,
             date_pickup: req.body.date_pickup,
             fee: req.body.fee,
-            // staff_id: req.body.staff_id,
-            // Need to send staff_id that is a number not the staff name input that is a string
+            staff_id: req.body.staff_id,
             pet_id: newPet.id,
         });
 
