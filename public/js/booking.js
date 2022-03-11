@@ -55,7 +55,8 @@ document.querySelector('#booking-form').addEventListener('submit', bookingFormHa
 document.querySelector("#booking-form").addEventListener("submit", () => {
     const staffId = document.querySelector("#staff").value;
 
-    console.log("selected staff ID", staffId);
+    // console.log("selected staff ID", staffId);
+    // console.log(typeof staffId);
 
     fetch("/api/bookings", {
         method: "POST",
