@@ -34,3 +34,8 @@ body {
 .icon-dark {
     color: var(--darkColor);
 }
+
+.row>* {
+  padding-left: 0px;
+  padding-right: 0px;
+}
