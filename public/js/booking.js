@@ -34,6 +34,7 @@ const bookingFormHandler = async (event) => {
 };
 
 $('#staff').select2({
+    placeholder: "Select a staff",
     ajax: {
         url: 'api/staffs/list',
         dataType: 'json',
