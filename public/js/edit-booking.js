@@ -36,23 +36,23 @@ const editBookingHandler = async (event) => {
     }
 };
 
-$('#staff').select2({
+$('#staff').select2(
     ajax: {
-        url: 'http://localhost:3001/api/staffs/list',
-        dataType: 'json',
-        processResults: function (data) {
-            return {
-                results: data.map((staff) => {
-                    return {
-                        id: staff.id,
-                        text: staff.name
-                    }
+    url: 'http://localhost:3001/api/staffs/list',
+    dataType: 'json',
+    processResults: function (data) {
+        return {
+            results: data.map((staff) => {
+                return {
+                    id: staff.id,
+                    text: staff.name
+                }
 
-                })
-            };
+            })
+        };
 
-        }
     }
+}
 });
 
 
