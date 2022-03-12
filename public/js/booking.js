@@ -8,18 +8,18 @@ const bookingFormHandler = async (event) => {
     const pet_notes = document.querySelector('#pet_notes').value.trim();
     const date_dropoff = document.querySelector('#date_dropoff').value.trim();
     const date_pickup = document.querySelector('#date_pickup').value.trim();
-    const staff = document.querySelector('#staff').value.trim();
+    const staff_id = document.querySelector('#staff').value.trim();
     // Staff is a string of the input for the name, we need staff_id which is a number
     const fee = document.querySelector('#fee').value.trim();
 
     if (owner_name && pet_name && pet_type && pet_breed && pet_notes && date_dropoff
-        && date_pickup && staff && fee) {
+        && date_pickup && staff_id && fee) {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/bookings/', {
             method: 'POST',
             body: JSON.stringify({
                 owner_name, pet_name, pet_type, pet_breed, pet_notes, date_dropoff,
-                date_pickup, staff, fee
+                date_pickup, staff_id: Number(staff_id), fee
             }),
             headers: { 'Content-Type': 'application/json' },
         });
@@ -54,9 +54,6 @@ document.querySelector('#booking-form').addEventListener('submit', bookingFormHa
 
 document.querySelector("#booking-form").addEventListener("submit", () => {
     const staffId = document.querySelector("#staff").value;
-
-    // console.log("selected staff ID", staffId);
-    // console.log(typeof staffId);
 
     fetch("/api/bookings", {
         method: "POST",

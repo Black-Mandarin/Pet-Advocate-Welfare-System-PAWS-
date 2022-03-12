@@ -3,13 +3,17 @@
 
     <form class="form" id="booking-form">
         <hr class="my-4" />
-        <h3>Customer Details</h3>
+        <h4>
+            <i class="fas fa-user"></i> Customer Details
+        </h4>
         <div class="form-group">
             <label for="owner_name">Owner Name:</label>
             <input class="form-input form-control" type="text" id="owner_name" name="owner_name" />
         </div>
         <hr class="my-4" />
-        <h3>Pet Details</h3>
+        <h4>
+            <i class="fas fa-dog"></i> Pet Details <i class="fas fa-cat"></i>
+        </h4>
         <div class="form-group">
             <label for="pet_name">Pet Name:</label>
             <input class="form-input form-control" type="text" id="pet_name" name="pet_name" />
@@ -27,7 +31,9 @@
             <textarea class="form-input form-control" id="pet_notes" name="pet_notes" rows="3"></textarea>
         </div>
         <hr class="my-4" />
-        <h3>Drop off and Pick up</h3>
+        <h4>
+            <i class="fas fa-calendar-check"></i> Drop off and Pick up
+        </h4>
         <div class="form-group">
             <label for="date_dropoff">Drop off:</label>
             <input class="form-input form-control" type="date" id="date_dropoff" name="date_dropoff" />
@@ -37,13 +43,15 @@
             <input class="form-input form-control" type="date" id="date_pickup" name="date_pickup" />
         </div>
         <hr class="my-4" />
-        <h2>Price</h2>
+        <h4><i class="fas fa-dollar-sign"></i> Price </h4>
         <div class="form-group">
             <label for="fee">Fee:</label>
             <input class="form-input form-control" type="number" id="fee" name="fee" min="0" />
         </div>
         <hr class="my-4" />
-        <h3>Assign Staff</h3>
+        <h4>
+            <i class="fas fa-user-check"></i> Assign Staff
+        </h4>
         <div class="form-group">
             <label for="staff">Staff:</label>
             <select class="form-control" id="staff" name="staff"></select>

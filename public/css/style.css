@@ -1,0 +1,36 @@
+:root {
+    --darkColor: rgb(30, 35, 39);
+    --lightColor: rgb(235, 217, 183);
+    --primeColor: rgb(31, 110, 110);
+    --secondColor:rgba(175, 59, 59, 0.945);
+    --thirdColor: rgba(78, 78, 73, 0.87);
+    --fourthColor: rgba(59, 76, 175, 0.945);
+    --dashedBorder: dashed 2px var(--lightColor);
+    --solidBorder: solid 1px var(--lightColor);
+    --doubleBorder: double 3px var(--lightColor);
+    --borderRadius: 1rem;
+   }
+
+   ::selection {
+    background-color: var(--primeColor);
+    color: var(--darkColor);
+  }
+
+  html {
+    font-size: 72.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito','Outfit', sans-serif;
+    /* font-size: 1.75rem; */
+    line-height: 1.5;
+    /* background-color: var(--darkColor); */
+    /* color: var(--lightColor); */
+    margin: 0;
+  }
+
+
+.icon-dark {
+    color: var(--darkColor);
+}

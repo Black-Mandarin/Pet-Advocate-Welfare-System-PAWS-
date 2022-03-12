@@ -8,7 +8,7 @@ const editBookingHandler = async (event) => {
     const pet_notes = document.querySelector('#pet_notes').value.trim();
     const date_dropoff = document.querySelector('#date_dropoff').value.trim();
     const date_pickup = document.querySelector('#date_pickup').value.trim();
-    const staff = document.querySelector('#staff').value.trim();
+    const staff_id = document.querySelector('#staff').value.trim();
     const pet_id = document.querySelector("#pet_id").value.trim();
     const fee = document.querySelector('#fee').value.trim();
     const id = window.location.toString().split('/')[
@@ -16,13 +16,13 @@ const editBookingHandler = async (event) => {
     ];
 
     if (owner_name && pet_name && pet_type && pet_breed && pet_notes && date_dropoff
-        && date_pickup && staff && id && pet_id && fee) {
+        && date_pickup && staff_id && id && pet_id && fee) {
         // Send a PUT request to the API endpoint
         const response = await fetch(`/api/bookings/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 owner_name, pet_name, pet_type, pet_breed, pet_notes, date_dropoff,
-                date_pickup, staff, pet_id: Number(pet_id), fee
+                date_pickup, staff_id: Number(staff_id), pet_id: Number(pet_id), fee
             }),
             headers: { 'Content-Type': 'application/json' },
         });
@@ -36,42 +36,42 @@ const editBookingHandler = async (event) => {
     }
 };
 
-// $('#staff').select2({
-//     ajax: {
-//         url: 'api/staffs/list',
-//         dataType: 'json',
-//         processResults: function (data) {
-//             return {
-//                 results: data.map((staff) => {
-//                     return {
-//                         id: staff.id,
-//                         text: staff.name
-//                     }
+$('#staff').select2({
+    ajax: {
+        url: 'http://localhost:3001/api/staffs/list',
+        dataType: 'json',
+        processResults: function (data) {
+            return {
+                results: data.map((staff) => {
+                    return {
+                        id: staff.id,
+                        text: staff.name
+                    }
 
-//                 })
-//             };
+                })
+            };
 
-
-
-//         }
-//     }
-// });
-
-// document.querySelector("#edit-booking-form").addEventListener("submit", () => {
-//     const staffId = document.querySelector("#staff").value;
-
-//     console.log("selected staff ID", staffId);
-
-//     fetch("/edit/:id", {
-//         method: "POST",
-//         body: {
-//             staffId: ParseInt(staffId),
-//         }
-//     })
-// });
-
+        }
+    }
+});
 
 
 document
     .querySelector('#edit-booking-form')
     .addEventListener('submit', editBookingHandler);
+
+document.querySelector("#edit-booking-form").addEventListener("submit", () => {
+    const staffId = document.querySelector("#staff").value;
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
+
+    console.log("selected staff ID", staffId);
+
+    fetch(`api/bookings/${id}`, {
+        method: "PUT",
+        body: {
+            staff_id: parseInt(staffId),
+        }
+    })
+});
