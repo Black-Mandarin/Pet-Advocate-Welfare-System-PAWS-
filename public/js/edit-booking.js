@@ -38,7 +38,7 @@ const editBookingHandler = async (event) => {
 
 $('#staff').select2({
     ajax: {
-        url: 'api/staffs/list',
+        url: 'http://localhost:3001/api/staffs/list',
         dataType: 'json',
         processResults: function (data) {
             return {
