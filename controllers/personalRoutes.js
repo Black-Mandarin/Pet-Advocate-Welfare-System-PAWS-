@@ -1,29 +1,34 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
 const { Booking, Staff, Pet } = require('../models');
 const withAuth = require('../utils/auth');
 
-
-router.get('/', withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
     try {
-        const staffData = await Staff.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Booking }],
-        });
+        const bookingData = await Booking.findAll({
+            include: [
+                { 
+                    model: Staff,
+                    attribute: { exclude: 'password' },
+                },
+                {
+                    model: Pet,
+                }
+            ],
+            where: {
+                staff_id: req.session.user_id
+            },
+        },
+        );
 
-        const staff = staffData.get({ plain: true });
-        console.log(staff);
+        const bookings = bookingData.map((booking) => booking.get({ plain: true }));
+
         res.render('personal', {
-            ...staff,
-            logged_in: true
+            bookings,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
-
-
-
 
 module.exports = router;
