@@ -52,9 +52,12 @@
         </div>
         <hr class="my-4" />
         <h4> <i class="fas fa-user-check"></i> Assign Staff</h4>
+
         <div class="form-group">
             <label for="staff">Staff:</label>
-            <select class="form-control" id="staff" name="staff" value="{{staff.name}}"></select>
+            <select class="form-control" id="staff" name="staff">
+                <option value="{{staff_id}}" selected="selected">{{staff.name}}</option>
+            </select>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary mt-2" id="updateBtn">UPDATE</button>
