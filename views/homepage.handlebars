@@ -1,7 +1,7 @@
 {{#each bookings as |booking|}}
 <div class="card border-dark mb-3" style="">
     <div class="card-header">
-        <h4 class=""><i class="fas fa-paw"></i>Booking ID: {{booking.id}}</h4>
+        <h4 class=""><i class="fas fa-paw"></i> Booking ID: {{booking.id}}</h4>
     </div>
     <di class="card-body text-dark">
         <h5 class="card-title">
@@ -15,15 +15,15 @@
         <p class="card-text">Note:
             {{pet.pet_notes}}</p>
         <hr>
-        Created: {{format_date date_created}} by {{user_name}}
-        <div class="text-right">
+        <div class="card-text">
+            Created at: {{format_date date_created}}
+        </div>
+
+        <div class="card-text">
             <a href="/booking/edit/{{booking.id}}"><button class="btn btn-primary mt-2" id="bookingBtn"
                     type="submit">EDIT</button></a>
             <button class="btn btn-danger mt-2 deleteBtn" data-id="{{booking.id}}">DELETE</button>
         </div>
-
-
-
 </div>
 {{/each}}
 
