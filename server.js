@@ -49,3 +49,55 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Now listening on port http://localhost:${PORT} `));
 });
+
+
+app.get('/', (req, res) => {
+    res.render('booking');
+});
+
+
+// const id = window.location.toString().split('/')[
+//     window.location.toString().split('/').length - 1
+// ];
+// app.get(`/api/bookings/${id}`, (req, res) => {
+//     res.render('edit-booking');
+// });
+
+
+app.post('/send', (req, res) => {
+    const output = `
+      <p>You are assigned as a carer staff for booking I ${req.body.booking_id}</p>
+      <h3>Booking Details</h3>
+     
+    `;
+    let transporter = nodemailer.createTransport({
+        host: 'mail.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: DB_EMAIL, // generated ethereal user
+            pass: DB_EMAIL_PASSWORD  // generated ethereal password
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@email.com>', // sender address
+        to: 'RECEIVEREMAILS', // list of receivers
+        subject: 'Node Contact Request', // Subject line
+        text: 'PAWS', // plain text body
+        html: output // html body
+    };
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: %s', info.messageId);
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        res.render('contact', { msg: 'Email has been sent' });
+    });
+})
