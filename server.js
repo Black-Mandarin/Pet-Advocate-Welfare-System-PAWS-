@@ -4,6 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 const helpers = require('./utils/helper');
 
@@ -25,15 +26,24 @@ const sess = {
     })
 };
 
-app.use(session(sess));
-
+// View engine setup
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Body-parser MiddleWare
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(session(sess));
+
+// Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Route middleware
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
