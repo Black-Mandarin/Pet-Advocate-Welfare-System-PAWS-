@@ -67,8 +67,6 @@ document.querySelector("#edit-booking-form").addEventListener("submit", () => {
         window.location.toString().split('/').length - 1
     ];
 
-    console.log("selected staff ID", staffId);
-
     fetch(`api/bookings/${id}`, {
         method: "PUT",
         body: {
