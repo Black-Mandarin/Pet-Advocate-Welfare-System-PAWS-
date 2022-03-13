@@ -66,10 +66,15 @@ app.get('/', (req, res) => {
 
 app.post('/send', (req, res) => {
     const output = `
-      <p>You are assigned as a carer staff for booking I ${req.body.booking_id}</p>
-      <h3>Booking Details</h3>
-     
-    `;
+  
+      <p>You are assigned as a carer staff for the following booking:</p>
+        <h5>Pet Name: ${req.body.pet_name} | Type: ${req.body.pet_type} | Breed:
+            ${req.body.pet_breed}</h5>
+            <p class="card-text">Note: ${req.body.pet_notes}}</p>
+        <p> Owner: ${req.body.owner_name}</p>
+        <p>Drop off: ${format_date(req.body.date_dropoff)} | Pick up: ${format_date(req.body.date_pickup)}</p>
+        <p>Staff assigned: ${req.body.staff}</p>
+        <p class="card-text">Fee: ${req.body.fee}</p>`;
     let transporter = nodemailer.createTransport({
         host: 'mail.gmail.com',
         port: 587,
@@ -84,8 +89,8 @@ app.post('/send', (req, res) => {
     });
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@email.com>', // sender address
-        to: 'RECEIVEREMAILS', // list of receivers
+        from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
+        to: "petadvocatewelfaresystem@gmail.com", // list of receivers
         subject: 'Node Contact Request', // Subject line
         text: 'PAWS', // plain text body
         html: output // html body
@@ -98,6 +103,6 @@ app.post('/send', (req, res) => {
         console.log('Message sent: %s', info.messageId);
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-        res.render('contact', { msg: 'Email has been sent' });
+        // res.render('contact', { msg: 'Email has been sent' });
     });
 })
