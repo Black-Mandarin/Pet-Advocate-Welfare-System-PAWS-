@@ -8,20 +8,20 @@ module.exports = {
     },
     get_name: (bookings) => {
         const res = [];
-        for(var i in bookings)
-                res.push(bookings[i]);
+        for (var i in bookings)
+            res.push(bookings[i]);
         return res[0].staff.name;
     },
     get_id: (bookings) => {
         const res = [];
-        for(var i in bookings)
-                res.push(bookings[i]);
+        for (var i in bookings)
+            res.push(bookings[i]);
         return res[0].staff.id;
     },
     get_email: (bookings) => {
         const res = [];
-        for(var i in bookings)
-                res.push(bookings[i]);
+        for (var i in bookings)
+            res.push(bookings[i]);
         return res[0].staff.email;
     }
 };

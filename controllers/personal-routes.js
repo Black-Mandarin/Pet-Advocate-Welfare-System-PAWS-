@@ -6,7 +6,7 @@ router.get("/", withAuth, async (req, res) => {
     try {
         const bookingData = await Booking.findAll({
             include: [
-                { 
+                {
                     model: Staff,
                     attribute: { exclude: 'password' },
                 },

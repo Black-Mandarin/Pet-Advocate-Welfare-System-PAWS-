@@ -4,6 +4,8 @@ const withAuth = require('../../utils/auth');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const { findByPk } = require('../../models/Staff');
+const session = require('express-session')
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
@@ -12,8 +14,6 @@ router.use(bodyParser.json());
 // Creates a new booking
 router.post("/", withAuth, async (req, res) => {
     try {
-        console.log(req.body);
-        console.log(req.session.body);
 
         const newPet = await Pet.create({
             pet_name: req.body.pet_name,
@@ -30,6 +30,8 @@ router.post("/", withAuth, async (req, res) => {
             staff_id: req.body.staff_id,
             pet_id: newPet.id,
         });
+        console.log("req.session----------------------------------");
+        console.log(req.session);
 
         const output = `
         <p>You are assigned as a care staff for the following booking:</p>
@@ -56,10 +58,13 @@ router.post("/", withAuth, async (req, res) => {
                 rejectUnauthorized: false
             }
         });
+
+
+
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
-            to: "petadvocatewelfaresystem@gmail.com", // list of receivers
+            to: req.session.email, // list of receivers
             subject: 'You are assigned as a Care Staff', // Subject line
             text: '', // plain text body
             html: output // html body
