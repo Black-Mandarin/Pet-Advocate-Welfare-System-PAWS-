@@ -28,8 +28,10 @@ router.get("/edit/:id", withAuth, async (req, res) => {
             ],
         });
 
+        // Serialize data so the template can read it
         const booking = bookingData.get({ plain: true });
 
+        // Pass serialized data and session flag into template
         res.render('edit-booking', {
             ...booking,
             logged_in: req.session.logged_in

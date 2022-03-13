@@ -12,9 +12,6 @@ router.use(bodyParser.json());
 // Creates a new booking
 router.post("/", withAuth, async (req, res) => {
     try {
-        console.log(req.body);
-        console.log(req.session.body);
-
         const newPet = await Pet.create({
             pet_name: req.body.pet_name,
             owner_name: req.body.owner_name,
@@ -78,7 +75,6 @@ router.post("/", withAuth, async (req, res) => {
         res.status(200).json({ newBooking, newPet });
 
     } catch (err) {
-        console.log(err)
         res.status(500).json(err);
     }
 });

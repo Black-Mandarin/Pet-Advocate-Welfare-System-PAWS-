@@ -6,6 +6,7 @@ router.post("/", async (req, res) => {
     try {
         const staffData = await Staff.create(req.body);
 
+
         req.session.save(() => {
             req.session.user_id = staffData.id;
             req.session.logged_in = true;
@@ -39,6 +40,7 @@ router.post("/login", async (req, res) => {
             return;
         }
 
+
         req.session.save(() => {
             req.session.user_id = staffData.id;
             req.session.logged_in = true;
@@ -65,6 +67,7 @@ router.post("/logout", async (req, res) => {
     }
 });
 
+// Sends a list of staff names to be used as a dropdown selection
 router.get("/list", async (req, res) => {
     try {
         const staffData = await Staff.findAll();
