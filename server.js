@@ -64,19 +64,30 @@ app.get('/', (req, res) => {
 // });
 
 
-app.post('/send', (req, res) => {
+app.post('/booking/send', (req, res) => {
     const output = `
-  
-      <p>You are assigned as a carer staff for the following booking:</p>
-        <h5>Pet Name: ${req.body.pet_name} | Type: ${req.body.pet_type} | Breed:
-            ${req.body.pet_breed}</h5>
-            <p class="card-text">Note: ${req.body.pet_notes}}</p>
+        <p>Pet Name: ${req.body.pet_name}</p>
+       
+        <p>Type: ${req.body.pet_type} </p>
+        <p> Breed:
+        ${req.body.pet_breed}</p>
+        <p>Note: ${req.body.pet_notes}</p>
+     
+        <p>Type: ${req.body.pet_type}</p>
+        <p>Type: ${req.body.pet_type} </p>
+        <p>Type: ${req.body.pet_type}</p>
+        <p>Breed: ${req.body.pet_breed}</p>
+        <p>Owner: ${req.body.owner_name}</p>
+        <p>Note: ${req.body.pet_notes}}</p>
         <p> Owner: ${req.body.owner_name}</p>
-        <p>Drop off: ${format_date(req.body.date_dropoff)} | Pick up: ${format_date(req.body.date_pickup)}</p>
+        <p>Drop off: ${format_date(req.body.date_dropoff)}
+        <p> Pick up: ${format_date(req.body.date_pickup)}</p>
         <p>Staff assigned: ${req.body.staff}</p>
-        <p class="card-text">Fee: ${req.body.fee}</p>`;
+        <p>Fee: ${req.body.fee}</p>`;
+
     let transporter = nodemailer.createTransport({
-        host: 'mail.gmail.com',
+        service: 'gmail',
+        host: 'smtp.gmail.com',
         port: 587,
         secure: false,
         auth: {
@@ -92,7 +103,7 @@ app.post('/send', (req, res) => {
         from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
         to: "petadvocatewelfaresystem@gmail.com", // list of receivers
         subject: 'Node Contact Request', // Subject line
-        text: 'PAWS', // plain text body
+        text: 'You are assigned as a carer staff for the following booking:', // plain text body
         html: output // html body
     };
     // send mail with defined transport object
