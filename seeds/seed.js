@@ -3,7 +3,7 @@ const { Staff, Booking, Pet } = require("../models");
 
 const staffData = require("./staff.json");
 const bookingData = require("./booking.json");
-const petData = require("./petData.json");
+const petData = require("./pet.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
