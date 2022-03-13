@@ -1,28 +1,28 @@
 [
   {
     "pet_name": "Leo",
-    "owner_name": "alan",
+    "owner_name": "Alan",
     "pet_breed": "Labrador",
     "pet_type": "Dog",
     "pet_notes": " Can be a pain"
   },
   {
     "pet_name": "Appollo",
-    "owner_name": "sean",
+    "owner_name": "Sean",
     "pet_breed": "German Shepard",
     "pet_type": "Dog",
     "pet_notes": "Very aggressive"
   },
   {
     "pet_name": "Loue",
-    "owner_name": "ayako",
+    "owner_name": "Ayako",
     "pet_breed": "Belgian Malinois",
     "pet_type": "Dog",
     "pet_notes": "Very Intelligent, Strong & Territorial"
   },
   {
     "pet_name": "Trump",
-    "owner_name": "chris",
+    "owner_name": "Chris",
     "pet_breed": "Chartreux",
     "pet_type": "Cat",
     "pet_notes": "Very Intelligent, Strong & Territorial"

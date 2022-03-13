@@ -1,10 +1,20 @@
 const router = require('express').Router();
 const { Booking, Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
+require('dotenv').config();
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
+const { findByPk } = require('../../models/Staff');
+const session = require('express-session')
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
+
 
 // Creates a new booking
 router.post("/", withAuth, async (req, res) => {
     try {
+
         const newPet = await Pet.create({
             pet_name: req.body.pet_name,
             owner_name: req.body.owner_name,
@@ -19,6 +29,55 @@ router.post("/", withAuth, async (req, res) => {
             fee: req.body.fee,
             staff_id: req.body.staff_id,
             pet_id: newPet.id,
+        });
+        console.log("req.session----------------------------------");
+        console.log(req.session);
+
+        const output = `
+        <p>You are assigned as a care staff for the following booking:</p>
+        <p>Pet Name: ${req.body.pet_name}</p>
+        <p>Type: ${req.body.pet_type} </p>
+        <p> Breed:${req.body.pet_breed}</p>
+        <p>Note: ${req.body.pet_notes}</p>
+        <p>Type: ${req.body.pet_type}</p>
+        <p>Breed: ${req.body.pet_breed}</p>
+        <p>Owner: ${req.body.owner_name}</p>
+        <p>Drop off: ${req.body.date_dropoff}</p>
+        <p> Pick up: ${req.body.date_pickup}</p>
+        <p>Fee: ${req.body.fee}</p>
+        Kind regards,
+        PAWS Team`;
+
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.DB_EMAIL, // generated ethereal user
+                pass: process.env.DB_EMAIL_PASSWORD  // generated ethereal password
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
+            to: req.session.email, // list of receivers
+            subject: 'You are assigned as a Care Staff', // Subject line
+            text: '', // plain text body
+            html: output // html body
+        };
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+            // res.render('contact', { msg: 'Email has been sent' });
         });
 
         res.status(200).json({ newBooking, newPet });
