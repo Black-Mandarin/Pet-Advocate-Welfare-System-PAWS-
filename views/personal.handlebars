@@ -1,15 +1,14 @@
 <div>
     <h2>
-        <i class="fas fa-person"></i> {{name}}'s Personal Page <i class="fas fa-person"></i>
+        <i class="fas fa-person"></i> {{staff.name}}'s Personal Page <i class="fas fa-person"></i>
     </h2>
     <p></p>
 </div>
 <div>
-    <h5> <i class="fas fa-address-card"></i> Staff ID: {{id}} </h5>
-    <h5><i class="fas fa-envelope"></i> Staff Email: {{email}}</h5>
+    <h5> <i class="fas fa-address-card"></i> Staff ID: {{staff.id}} </h5>
+    <h5><i class="fas fa-envelope"></i> Staff Email: {{staff.email}}</h5>
 </div>
 <hr>
-
 {{#each bookings as |booking|}}
 <div class="card border-dark mb-3" style="">
     <div class="card-header">
@@ -31,13 +30,12 @@
             Created at: {{format_date date_created}}
         </div>
 
-        {{!-- <div class="card-text">
-            <a href="/booking/edit/{{booking.id}}"><button class="btn btn-primary mt-2" id="bookingBtn"
+        <div class="card-text">
+            <a href="/booking/edit/{{booking.id}}"><button class="btn btn-dark mt-2" id="bookingBtn"
                     type="submit">EDIT</button></a>
             <button class="btn btn-danger mt-2 deleteBtn" data-id="{{booking.id}}">DELETE</button>
-        </div> --}}
+        </div>
 </div>
 {{/each}}
 
-{{!--
-<script src="/js/personal.js"></script> --}}
+<script src="/js/homepage.js"></script>
