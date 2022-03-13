@@ -1,12 +1,12 @@
 <div>
     <h2>
-        <i class="fas fa-person"></i> {{staff.name}}'s Personal Page <i class="fas fa-person"></i>
+        <i class="fas fa-person"></i> {{get_name bookings}}'s Personal Page <i class="fas fa-person"></i>
     </h2>
     <p></p>
 </div>
 <div>
-    <h5> <i class="fas fa-address-card"></i> Staff ID: {{staff.id}} </h5>
-    <h5><i class="fas fa-envelope"></i> Staff Email: {{staff.email}}</h5>
+    <h5> <i class="fas fa-address-card"></i> Staff ID: {{get_id bookings}} </h5>
+    <h5><i class="fas fa-envelope"></i> Staff Email: {{get_email bookings}}</h5>
 </div>
 <hr>
 {{#each bookings as |booking|}}

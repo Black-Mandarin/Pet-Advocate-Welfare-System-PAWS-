@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-
+const bodyParser = require('body-parser');
 const helpers = require('./utils/helper');
 
 const sequelize = require('./config/connection');
