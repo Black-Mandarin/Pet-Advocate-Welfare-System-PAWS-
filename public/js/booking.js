@@ -9,7 +9,6 @@ const bookingFormHandler = async (event) => {
     const date_dropoff = document.querySelector('#date_dropoff').value.trim();
     const date_pickup = document.querySelector('#date_pickup').value.trim();
     const staff_id = document.querySelector('#staff').value.trim();
-    // Staff is a string of the input for the name, we need staff_id which is a number
     const fee = document.querySelector('#fee').value.trim();
 
     if (owner_name && pet_name && pet_type && pet_breed && pet_notes && date_dropoff
