@@ -37,7 +37,6 @@ const editBookingHandler = async (event) => {
 };
 
 $('#staff').select2({
-
     ajax: {
         url: '../../api/staffs/list',
         dataType: 'json',
@@ -48,14 +47,11 @@ $('#staff').select2({
                         id: staff.id,
                         text: staff.name
                     }
-
                 })
             };
-
         }
     }
 });
-
 
 document
     .querySelector('#edit-booking-form')
