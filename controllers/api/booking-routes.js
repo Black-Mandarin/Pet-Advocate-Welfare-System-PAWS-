@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 
-// Creates a new booking
+// Creates a new booking and sends email
 router.post("/", withAuth, async (req, res) => {
     try {
 
@@ -34,7 +34,7 @@ router.post("/", withAuth, async (req, res) => {
         console.log(req.session);
 
         const output = `
-        <p>You are assigned as a care staff for the following booking:</p>
+        <p>The following booking has been created:</p>
         <p>Pet Name: ${req.body.pet_name}</p>
         <p>Type: ${req.body.pet_type} </p>
         <p> Breed:${req.body.pet_breed}</p>
@@ -64,8 +64,9 @@ router.post("/", withAuth, async (req, res) => {
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
-            to: req.session.email, // list of receivers
-            subject: 'You are assigned as a Care Staff', // Subject line
+            to: req.session.email, //  receivers
+            bcc: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>',
+            subject: 'New Booking has been created.', // Subject line
             text: '', // plain text body
             html: output // html body
         };
@@ -77,7 +78,6 @@ router.post("/", withAuth, async (req, res) => {
             console.log('Message sent: %s', info.messageId);
             console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-            // res.render('contact', { msg: 'Email has been sent' });
         });
 
         res.status(200).json({ newBooking, newPet });
@@ -87,7 +87,7 @@ router.post("/", withAuth, async (req, res) => {
     }
 });
 
-// Updates a booking
+// Updates a booking, and sends email
 router.put("/:id", withAuth, async (req, res) => {
     try {
         const bookingData = await Booking.update({
@@ -112,6 +112,53 @@ router.put("/:id", withAuth, async (req, res) => {
             res.status(404).json({ message: 'No booking found with this id!' });
             return;
         }
+
+        // setup email contents 
+        const output = `
+        <p>The following booking has been updated:</p>
+        <p>Pet Name: ${req.body.pet_name}</p>
+        <p>Type: ${req.body.pet_type} </p>
+        <p> Breed:${req.body.pet_breed}</p>
+        <p>Note: ${req.body.pet_notes}</p>
+        <p>Type: ${req.body.pet_type}</p>
+        <p>Breed: ${req.body.pet_breed}</p>
+        <p>Owner: ${req.body.owner_name}</p>
+        <p>Drop off: ${req.body.date_dropoff}</p>
+        <p> Pick up: ${req.body.date_pickup}</p>
+        <p>Fee: ${req.body.fee}</p>
+        Kind regards,
+        PAWS Team`;
+
+        // setup transport
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.DB_EMAIL,
+                pass: process.env.DB_EMAIL_PASSWORD
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
+            to: req.session.email, // list of receivers
+            bcc: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>',
+            subject: 'Booking has been updated.', // Subject line
+            text: '', // plain text body
+            html: output // html body
+        };
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        });
 
         res.status(200).json({ bookingData, petData });
     } catch (err) {
