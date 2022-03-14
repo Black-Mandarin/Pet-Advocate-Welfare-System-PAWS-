@@ -13,7 +13,7 @@
 
    ::selection {
     background-color: var(--primeColor);
-    color: var(--darkColor);
+    color: var(--lightColor);
   }
 
   html {
@@ -22,6 +22,9 @@
 }
 
 body {
+  background-image: url("../background.jpeg");
+  background-repeat: no-repeat; 
+  background-size: cover; 
     font-family: 'Nunito','Outfit', sans-serif;
     /* font-size: 1.75rem; */
     line-height: 1.5;
