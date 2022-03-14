@@ -32,21 +32,40 @@
 </details>
 
  ## About The Project
- ![ProductScreen Shot](./assets/product.gif)
+ ![ProductScreen Shot](public/assets/product.png)
 
 In this project, we aim to create a Pet Registry for different types of animals. As the aim is to have a simple and efficient system to record and display vital information about pets who are staying as well as new customers. Having a one-stop to see all the necessary information about the business. 
+ 
+ [Click Here to View Our Deployed Page](https://pet-advocate-welfare-system.herokuapp.com/)
+
+ ## Home where you can see all bookings
+ ![ProductScreen Shot](public/assets/product2.png)
+ ## Create New Booking 
+ ![ProductScreen Shot](public/assets/product3.png)
+ ## Personal Page
+ ![ProductScreen Shot](public/assets/product4.png)
+ ## Update Page
+ ![ProductScreen Shot](public/assets/product5.png)
+
 
 <p align = "right">(<a href="#top">back to top</a>)</>
 
-- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
-- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
-- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
-- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white"/>
-* [Dotenv](https://www.npmjs.com/package/dotenv) 
-- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+* <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black"/>
+* [dotenv](https://www.npmjs.com/package/dotenv) 
+* [body-parser](https://https://www.npmjs.com/package/body-parser)
+* [nodemailer](https://https://www.npmjs.com/package/nodemailer)
+* [bcrypt](https://www.npmjs.com/package/bcrypt)
+* [express-session](https://www.npmjs.com/package/express-session)
+* [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
   
 
 <p align = "right"> (<a href="#top">back to top</a>)</>
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -60,8 +79,17 @@ To get a local copy up and running follow these simple example steps.
  ```
 
  2: Make sure that .env file has your DB password
+ ```
+ Please do not forget to write followings in .env file 
+ (change the filename from .env.template to .env) 
 
- Please do not forget to write your secret at DB_SECRET 
+ DB_NAME=blog_db
+ DB_PASSWORD=
+ DB_USER=root
+ DB_SECRET=
+ DB_EMAIL=
+ DB_EMAIL_PASSWORD=
+ ```
 
  3: Install npm packages
  ```
@@ -110,5 +138,7 @@ PAWS Team:
 
 
 Project Link: [https://github.com/Black-Mandarin/Pet-Advocate-Welfare-System-PAWS-](https://github.com/Black-Mandarin/Pet-Advocate-Welfare-System-PAWS-)
+
+Heroku Link: [https://pet-advocate-welfare-system.herokuapp.com/](https://pet-advocate-welfare-system.herokuapp.com/)]
 
 <p align="right">(<a href="#top">back to top</a>)</>
