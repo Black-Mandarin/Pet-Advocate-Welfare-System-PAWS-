@@ -3,12 +3,6 @@ const { Booking, Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
-const session = require('express-session')
-
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
-
 
 // Creates a new booking and sends email
 router.post("/", withAuth, async (req, res) => {
