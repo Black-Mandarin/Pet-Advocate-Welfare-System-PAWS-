@@ -139,6 +139,6 @@ PAWS Team:
 
 Project Link: [https://github.com/Black-Mandarin/Pet-Advocate-Welfare-System-PAWS-](https://github.com/Black-Mandarin/Pet-Advocate-Welfare-System-PAWS-)
 
-Heroku Link: [https://pet-advocate-welfare-system.herokuapp.com/](https://pet-advocate-welfare-system.herokuapp.com/)]
+Heroku Link: [https://pet-advocate-welfare-system.herokuapp.com/](https://pet-advocate-welfare-system.herokuapp.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</>
