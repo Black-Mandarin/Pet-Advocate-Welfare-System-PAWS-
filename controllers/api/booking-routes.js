@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const { findByPk } = require('../../models/Staff');
 const session = require('express-session')
 
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -116,6 +115,7 @@ router.put("/:id", withAuth, async (req, res) => {
         // setup email contents 
         const output = `
         <p>The following booking has been updated:</p>
+        <p>Booking ID: ${req.params.id}</p>
         <p>Pet Name: ${req.body.pet_name}</p>
         <p>Type: ${req.body.pet_type} </p>
         <p> Breed:${req.body.pet_breed}</p>
@@ -179,6 +179,44 @@ router.delete("/:id", withAuth, async (req, res) => {
             res.status(404).json({ message: 'No booking found with this id!' });
             return;
         }
+
+        // setup email contents 
+        const output = `
+        <p>The following booking has been deleted:</p>
+        <p>Booking ID: ${req.params.id}</p>
+        Kind regards,
+        PAWS Team`;
+
+        // setup transport
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.DB_EMAIL,
+                pass: process.env.DB_EMAIL_PASSWORD
+            },
+            tls: {
+                rejectUnauthorized: false
+            }
+        });
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
+            to: req.session.email, // list of receivers
+            bcc: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>',
+            subject: 'Booking has been deleted.', // Subject line
+            text: '', // plain text body
+            html: output // html body
+        };
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                return console.log(error);
+            }
+            console.log('Message sent: %s', info.messageId);
+            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+        });
 
         res.status(200).json(bookingData);
     } catch (err) {
