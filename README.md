@@ -34,18 +34,17 @@
  ## About The Project
  ![ProductScreen Shot](./assets/product.gif)
 
-
-In this project we aim to create a Pet Registry for different types of animal. Our business ia a daycare to cater all types of pets
+In this project, we aim to create a Pet Registry for different types of animals. As the aim is to have a simple and efficient system to record and display vital information about pets who are staying as well as new customers. Having a one-stop to see all the necessary information about the business. 
 
 <p align = "right">(<a href="#top">back to top</a>)</>
 
- ## Built With
-* [Node.js](https://nodejs.org/) 
-* [Express.js](https://expressjs.com/) 
-* [MySQL2](https://www.npmjs.com/package/mysql2) 
-* [Sequelize](https://www.npmjs.com/package/sequelize) 
-* [dotenv](https://www.npmjs.com/package/dotenv) 
-* [handlebars](https://www.npmjs.com/package/express-handlebars)
+- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white"/>
+- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white"/>
+* [Dotenv](https://www.npmjs.com/package/dotenv) 
+- <img align= "left" alt= "nodejs icon" src="https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black"/>
+  
 
 <p align = "right"> (<a href="#top">back to top</a>)</>
 ## Getting Started
@@ -105,8 +104,8 @@ See LICENSE.txt for more information.
 
 PAWS Team: 
 * [Sean Scott](https://github.com/seanscott95)
-* [Alan Cherian](https://github.com/Black-Mandarin)
 * [Ayako Woollan](https://github.com/ayacomputer)
+* [Alan Cherian](https://github.com/Black-Mandarin)
 
 
 
