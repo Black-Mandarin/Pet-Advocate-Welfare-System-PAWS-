@@ -11,15 +11,14 @@
             Pet ID: {{pet.id}} | Name: {{pet.pet_name}} |</strong>
         </h5>
         <h5 class="card-title"><strong>
-            Type: {{pet.pet_type}} | Breed:{{pet.pet_breed}} |</strong>
+            Type: {{pet.pet_type}} | Breed: {{pet.pet_breed}} |</strong>
         </h5>
         <p class="card-text">Owner: {{pet.owner_name}}</p>
         <p class="card-text">Drop off: {{format_date booking.date_dropoff}} | Pick up: {{format_date
             booking.date_pickup}}</p>
         <p class="card-text">Staff assigned: ID: {{staff.id}} | NAME: {{staff.name}}</p>
         <p class="card-text">Fee: {{booking.fee}}</p>
-        <p class="card-text">Note:
-            {{pet.pet_notes}}</p>
+        <p class="card-text">Note: {{pet.pet_notes}}</p>
         <hr>
         <div class="card-text">
             Created at: {{format_date date_created}}
@@ -30,6 +29,7 @@
                     type="submit">EDIT</button></a>
             <button class="btn btn-danger m-2 deleteBtn" data-id="{{booking.id}}">DELETE</button>
         </div>
+    </div>
 </div>
 {{/each}}
 
