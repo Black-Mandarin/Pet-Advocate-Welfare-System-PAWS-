@@ -54,3 +54,11 @@ body {
   font-family: "Ubuntu", "Nunito","Outfit", sans-serif;
   font-weight: 700;
 }
+
+.card {
+  background-color: RGBA(255, 255, 255, .75);
+}
+
+.form-control {
+  background-color: RGBA(255, 255, 255, .75);
+}
