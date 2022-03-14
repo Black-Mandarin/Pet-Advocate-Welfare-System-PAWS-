@@ -30,7 +30,14 @@ body {
     margin: 0;
   }
 
+.btn-danger {
+  background-color: var(--secondColor);
+}
 
+.btn_primary {
+  background-color: var(--primeColor);
+
+}
 .icon-dark {
     color: var(--darkColor);
 }
@@ -38,4 +45,9 @@ body {
 .row>* {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+#title {
+  font-family: "Ubuntu", "Nunito","Outfit", sans-serif;
+  font-weight: 700;
 }
