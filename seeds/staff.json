@@ -1,31 +1,31 @@
 [
   {
     "name": "Alan",
-    "email": "alancherian61@outlook.com",
-    "password": "@HiGuys"
+    "email": "alan@out.com",
+    "password": "password123"
   },
 
   {
     "name": "Ayako",
-    "email": "Ayako@out.com",
-    "password": "AyakoisPassword"
+    "email": "ayako@out.com",
+    "password": "password123"
   },
 
   {
     "name": "Sean",
-    "email": "Sean@out.com",
-    "password": "SeanIsNotMyName"
+    "email": "sean@out.com",
+    "password": "password123"
   },
 
   {
     "name": "Chris",
-    "email": "Chris@chris.com",
-    "password": "ChrisisNotChris"
+    "email": "chris@out.com",
+    "password": "password123"
   },
 
   {
     "name": "Takuji",
-    "email": "Takuji@takuji.com",
-    "password": "IamNotTakuji"
+    "email": "takuji@out.com",
+    "password": "password123"
   }
 ]
