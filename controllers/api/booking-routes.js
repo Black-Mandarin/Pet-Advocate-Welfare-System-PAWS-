@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 // Creates a new booking and sends email
 router.post("/", withAuth, async (req, res) => {
     try {
-
+        
         const newPet = await Pet.create({
             pet_name: req.body.pet_name,
             owner_name: req.body.owner_name,
