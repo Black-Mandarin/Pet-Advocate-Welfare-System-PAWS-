@@ -7,12 +7,14 @@ const nodemailer = require('nodemailer');
 // Creates a new booking and sends email
 router.post("/", withAuth, async (req, res) => {
     try {
+
         const newPet = await Pet.create(req.body);
         req.body.pet_id = newPet.id;
         const newBooking = await Booking.create(req.body);
 
         const staffByPk = await Staff.findByPk(req.body.staff_id);
         const staffData = staffByPk.get({ plain: true });
+
 
         const output = `
         <p>Note: This email is sent to the staff assigned as care staff as well.</p>
