@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Booking, Pet } = require('../../models');
+const { Booking, Pet, Staff } = require('../../models');
 const withAuth = require('../../utils/auth');
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -7,26 +7,17 @@ const nodemailer = require('nodemailer');
 // Creates a new booking and sends email
 router.post("/", withAuth, async (req, res) => {
     try {
-        
-        const newPet = await Pet.create({
-            pet_name: req.body.pet_name,
-            owner_name: req.body.owner_name,
-            pet_type: req.body.pet_type,
-            pet_breed: req.body.pet_breed,
-            pet_notes: req.body.pet_notes,
-        });
 
-        const newBooking = await Booking.create({
-            date_dropoff: req.body.date_dropoff,
-            date_pickup: req.body.date_pickup,
-            fee: req.body.fee,
-            staff_id: req.body.staff_id,
-            pet_id: newPet.id,
-        });
-        console.log("req.session----------------------------------");
-        console.log(req.session);
+        const newPet = await Pet.create(req.body);
+        req.body.pet_id = newPet.id;
+        const newBooking = await Booking.create(req.body);
+
+        const staffByPk = await Staff.findByPk(req.body.staff_id);
+        const staffData = staffByPk.get({ plain: true });
+
 
         const output = `
+        <p>Note: This email is sent to the staff assigned as care staff as well.</p>
         <p>The following booking has been created:</p>
         <p>Pet Name: ${req.body.pet_name}</p>
         <p>Type: ${req.body.pet_type} </p>
@@ -57,9 +48,9 @@ router.post("/", withAuth, async (req, res) => {
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
-            to: req.session.email, //  receivers
+            to: [req.session.email, staffData.email],//  receivers
             bcc: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>',
-            subject: 'New Booking has been created.', // Subject line
+            subject: 'New Booking has been created. (Staff assigned)', // Subject line
             text: '', // plain text body
             html: output // html body
         };
@@ -106,8 +97,13 @@ router.put("/:id", withAuth, async (req, res) => {
             return;
         }
 
+        const staffByPk = await Staff.findByPk(req.body.staff_id);
+        const staffData = staffByPk.get({ plain: true });
+
         // setup email contents 
         const output = `
+        <p>Note: This email is sent to the staff assigned as care staff as well.</p>
+        
         <p>The following booking has been updated:</p>
         <p>Booking ID: ${req.params.id}</p>
         <p>Pet Name: ${req.body.pet_name}</p>
@@ -138,7 +134,7 @@ router.put("/:id", withAuth, async (req, res) => {
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>', // sender address
-            to: req.session.email, // list of receivers
+            to: [req.session.email, staffData.email], // list of receivers
             bcc: '"Pet Advocate Welfare System" <petadvocatewelfaresystem@gmail.com>',
             subject: 'Booking has been updated.', // Subject line
             text: '', // plain text body
